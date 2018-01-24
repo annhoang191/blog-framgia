@@ -1,0 +1,25 @@
+<h1 class="form-title">Create new post</h1>
+  <%= form_for @post do |f| %>
+    <div class="form-label">
+      <%= f.label :title, t(".title"), class: "form-label anchor", id: "form-name" %>
+        <%= f.text_field :title, class: "form-input", placeholder: t(".title") %>
+          <span class="help-block" id="hint_name">
+            <%= t ".title "%>
+          </span>
+    </div>
+
+    <div class="form-label">
+      <%= f.label :content, t(".content"), class: "control-label anchor", id: "form-des" %>
+        <%= f.text_area :content, id: "markdown", class: "form-control", cols: "40", rows: "10",
+              placeholder: t(".content") %>
+          <span class="help-block" id="hint_message">
+            <%= t ".content" %>
+          </span>
+    </div>
+
+    <div class="form-label">
+      <div>
+        <%= f.submit t(".submit"), class: "W2Gbutton" %>
+      </div>
+    </div>
+  <% end %>

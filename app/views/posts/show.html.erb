@@ -1,0 +1,44 @@
+<div class="container post-index">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1><%= @post.title %></h1>
+      <p class="lead">
+        by
+        <%= link_to @post_owner, user_path(id: @post_owner_id) %>
+      </p>
+      <hr>
+      <p><span class="glyphicon glyphicon-time"></span><%= t ".post" %><%= @post.created_at %></p>
+      <hr>
+      <div>
+        <h2><%= @post.title %></h2>
+        <p><span class="label label-success"><%= t ".start" %></span> <b><%= @post.created_at %></b></p>
+        <p class="markdown"><%= @post.content %></p>
+      </div>
+      <hr>
+      <div class="share-post">
+        <h3>Share this post!</h3>
+      </div>
+      <hr>
+      <% if user_signed_in? %>
+        <h3>Leave a comment</h3>
+        <div class="comment-form well">
+          <%= render "comments/form" %>
+        </div>
+      <% end %>
+      <hr>
+      <div class="showing-comments">
+        <%= render @post.comments %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="well">
+        <h4><%= t ".categories" %></h4>
+        <div class="row">
+        Something here
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
