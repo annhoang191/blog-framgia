@@ -12,14 +12,11 @@
       <%= f.label :content, t(".content"), class: "control-label anchor", id: "form-des" %>
         <%= f.text_area :content, id: "markdown", class: "form-control", cols: "40", rows: "10",
               placeholder: t(".content") %>
-          <span class="help-block" id="hint_message">
-            <%= t ".content" %>
-          </span>
     </div>
 
     <div class="form-label">
       <div>
-        <%= f.submit t(".submit"), class: "W2Gbutton" %>
+        <%= f.submit t(".submit"), class: "submit-button" %>
       </div>
     </div>
   <% end %>

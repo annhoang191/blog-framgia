@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "acts_as_votable", "~> 0.11.1"
 gem "rails", "~> 5.1.4"
 gem "puma", "~> 3.7"
 gem "sass-rails", "~> 5.0"
@@ -19,6 +20,13 @@ gem "bootstrap-sass", "3.3.7"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "sass-rails", "~> 5.0"
+gem "font-awesome-rails"
+gem "kaminari"
+gem "pygments.rb", "~> 0.6.3"
+gem "redcarpet", "~> 3.3", ">= 3.3.4"
+gem "simplemde-rails"
+gem "carrierwave", "~> 1.1.0"
+gem "cloudinary"
 
 group :development, :test do
   gem "sqlite3"
