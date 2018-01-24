@@ -1,0 +1,6 @@
+if(<%= @temp %>){
+  $('#like_<%= @post %>').addClass('fa-heart-press');
+} else {
+  $('#like_<%= @post %>').removeClass('fa-heart-press');
+}
+$('#like_count_<%= @post %>').html('<%= @current_post.like_posts.count %>');
