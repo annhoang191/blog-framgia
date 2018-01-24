@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post_owner = @post.user.name
+    @post_owner_id = @post.user.id
   end
 
   def new
@@ -29,6 +31,12 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update_attributes post_params
+      redirect_to @post
+    else
+      flash[:danger] = t :update_false
+      render :edit
+    end
   end
 
   def destroy

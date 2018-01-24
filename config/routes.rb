@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "static_pages#home"
   resources :users
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 end

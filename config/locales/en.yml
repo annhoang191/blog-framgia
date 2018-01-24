@@ -10,3 +10,13 @@ en:
       log_out: "Log out"
       log_in: "Log in"
       sign_up: "Sign up"
+
+  posts:
+    new:
+      title: "Title"
+      content: "Content"
+      submit: "Create post"
+
+  comments:
+    form:
+      comment: "Comment"
