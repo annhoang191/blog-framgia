@@ -15,6 +15,12 @@
         <p class="markdown"><%= @post.content %></p>
       </div>
       <hr>
+      <h4>Like</h4>
+      <div class="like-post">
+      <%= button_to post_like_posts_path(@post.id), remote: true, class: "clear" do %>
+        <i class="fa fa-heart" id="like_<%= @post.id %>" aria-hidden="true"></i>
+      <% end %>
+      </div>
       <div class="share-post">
         <h3>Share this post!</h3>
       </div>

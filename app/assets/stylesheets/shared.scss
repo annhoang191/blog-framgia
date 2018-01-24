@@ -54,3 +54,27 @@ footer {
     }
   }
 }
+
+.fa {
+  &:hover {
+    text-shadow: 0px 0px 7px black;
+    transition: all 0.5s;
+  }
+}
+
+.fa-heart {
+  color: white;
+  display: inline-block;
+  font-size: 30px !important;
+  text-shadow: 0px 0px 2px black;
+}
+
+.fa-heart-press {
+  color: $fire-brick;
+}
+
+.clear {
+  padding: 0;
+border: none;
+background: none;
+}
