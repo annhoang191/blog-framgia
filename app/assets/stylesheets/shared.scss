@@ -54,3 +54,81 @@ footer {
     }
   }
 }
+
+.fa {
+  &:hover {
+    text-shadow: 0px 0px 7px black;
+    transition: all 0.5s;
+  }
+}
+
+.fa-thumbs-up {
+  color: $mystic;
+  display: inline-block;
+  font-size: 30px !important;
+  text-shadow: 0px 0px 2px black;
+}
+
+.fa-thumbs-up-press {
+  color: $dazzled-blue;
+}
+
+.clear {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.comment-avatar {
+  object-fit: cover;
+  width: 100px;
+  height:100px;
+}
+
+.remove-button {
+  float: right;
+  top:0;
+  background-color: black;
+  border-radius: 0px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  color: white;
+  letter-spacing: 1px;
+  outline: none;
+  &:hover {
+    background-color: red;
+  }
+}
+
+/*flash*/
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+.post-banner {
+  margin-bottom: 20px;
+}

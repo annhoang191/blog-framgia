@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: :show
 
   def index
-    @comments = Comment.order_by_date_created
+    @comments = @post.comments.order_by_date_created.page(params[:page]).per 4
   end
 
   def show

@@ -28,3 +28,37 @@ input {
   margin-bottom: 13px;
   outline: none;
 }
+
+.submit-button {
+  background-color: black;
+  border: 1px solid white;
+  box-sizing: border-box;
+  color: white;
+  outline: 0;
+  padding: 5px 5px;
+  border-radius: 3px;
+  margin: 0 auto;
+  width: 25%;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+
+input[type=checkbox] {
+  display:none;
+
+  + label::before {
+    content: "\f096";
+    display: inline-block !important;
+    font-family: FontAwesome;
+    letter-spacing: 10px;
+  }
+
+  &:checked {
+    + label::before {
+      content: "\f046";
+      display: inline-block !important;
+      letter-spacing: 5px;
+    }
+  }
+}

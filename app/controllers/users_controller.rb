@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :get_user_by_id,
+    only: [:edit, :update]
+
   def index
   end
 

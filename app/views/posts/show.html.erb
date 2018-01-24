@@ -7,14 +7,31 @@
         <%= link_to @post_owner, user_path(id: @post_owner_id) %>
       </p>
       <hr>
-      <p><span class="glyphicon glyphicon-time"></span><%= t ".post" %><%= @post.created_at %></p>
-      <hr>
-      <div>
-        <h2><%= @post.title %></h2>
-        <p><span class="label label-success"><%= t ".start" %></span> <b><%= @post.created_at %></b></p>
-        <p class="markdown"><%= @post.content %></p>
+      <div class="row">
+        <div class="col-md-9">
+          <p>
+            <span class="glyphicon glyphicon-time"></span>
+            Posted on <%= @post.created_at %>
+          </p>
+        </div>
+        <% if user_signed_in? && (current_user.id == @post.user.id) %>
+          <%= link_to "edit post", edit_post_path %>
+        <% end %>
       </div>
       <hr>
+      <% if @post.picture.present? %>
+        <%= image_tag @post.picture_url(:standard) %>
+      <% end %>
+      <div>
+        <h2><%= @post.title %></h2>
+        <p class="markdown"><%= markdown @post.content %></p>
+      </div>
+      <hr>
+      <div class="like-post">
+      <%= button_to post_like_posts_path(@post.id), remote: true, class: "clear" do %>
+        <i class="fa fa-thumbs-up" id="like_<%= @post.id %>" aria-hidden="true"></i> <span> Like this post</span>
+      <% end %>
+      </div>
       <div class="share-post">
         <h3>Share this post!</h3>
       </div>

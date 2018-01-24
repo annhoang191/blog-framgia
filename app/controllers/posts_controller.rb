@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update]
 
   def index
+    @posts_written = current_user.posts.all
   end
 
   def show
@@ -53,6 +54,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :picture)
   end
 end

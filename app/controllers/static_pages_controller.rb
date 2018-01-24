@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @posts = Post.all
+    @posts = Post.all.page params[:page]
   end
 
   def contact
