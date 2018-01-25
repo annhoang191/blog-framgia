@@ -1,0 +1,51 @@
+<div class="row user-profile">
+  <aside class="col-md-4">
+    <section class="user_info">
+    <%= image_tag @user.picture_url(:circle), class: "img-profile" %>
+    <h1>
+      <%= @user.name %>
+    </h1>
+    <p><%= @user.email %></p>
+    <p>Joined since <%= @user.created_at.to_date.strftime("%m-%d-%Y") %></p>
+
+    <% if user_signed_in? && current_user.id != @user.id && !current_user.friends.include?(@user) %>
+      <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post,
+        class: "btn btn-primary" %>
+    <% end %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#friend">Friends</a></li>
+      <li><a data-toggle="tab" href="#befriend">Added</a></li>
+      <li><a data-toggle="tab" href="#posts">Posts written</a></li>
+    </ul>
+    <div class="tab-content clearfix">
+      <div id="friend" class="tab-pane fade in active interactive">
+        <h2 class="text-center">Friends</h2>
+          <% for user in @user.friends %>
+          <div class="col-md-3">
+            <figure class="figure">
+              <%= image_tag user.picture_url(:friend), class:"img-friend" %>
+              <figcaption class="figure-caption"><%= link_to user.name, user%></figcaption>
+            </figure>
+          </div>
+          <% end %>
+      </div>
+      <div id="befriend" class="tab-pane fade interactive">
+        <h2 class="text-center">Added <%= @user.name %> as a friend</h2>
+          <% for user in @user.inverse_friends %>
+            <div class="col-md-3">
+              <figure class="figure">
+                <%= image_tag user.picture_url(:friend), class:"img-friend" %>
+                <figcaption class="figure-caption"><%= link_to user.name, user%></figcaption>
+              </figure>
+            </div>
+          <% end %>
+      </div>
+      <div id="posts" class="tab-pane fade interactive">
+        <%= render partial: "posts/post", collection: @posts_written%>
+      </div>
+    </div>
+  </div>
+</div>

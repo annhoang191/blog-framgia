@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, :like_posts
   end
+  resources :friendships
 end

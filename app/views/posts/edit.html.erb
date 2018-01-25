@@ -14,9 +14,14 @@
               placeholder: t(".content") %>
     </div>
 
+    <div class="form-label image-upload">
+      <%= f.label :picture, t(".upload"), class: "control-label anchor file-input", id: "form-image" %>
+      <%= f.file_field :picture %>
+    </div>
+
     <div class="form-label">
       <div>
-        <%= f.submit t(".submit"), class: "submit-button" %>
+        <%= f.submit "Update post", class: "submit-button" %>
       </div>
     </div>
   <% end %>

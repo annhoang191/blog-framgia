@@ -1,0 +1,108 @@
+@import 'variable_color';
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.nav-tabs {
+  border-bottom: 2px solid $alto;
+  text-align:center;
+  > li {
+    color: black;
+    display:inline-block;
+    float:none;
+    font-size: 20px;
+    letter-spacing: 2px;
+    width: 250px;
+    zoom:1;
+    &.active {
+      > a {
+        border-width: 0;
+        &:focus, &:hover {
+          border-width: 0;
+        }
+      }
+
+      > a {
+        background: transparent;
+        border: none;
+        color: $cornflower-blue !important;
+      }
+
+      > a::after {
+        transform: scale(1);
+      }
+    }
+
+    > a {
+      border: none;
+      color: black;
+    }
+
+    > a {
+      &:hover {
+        background: transparent;
+        border: none;
+        color: $cornflower-blue !important;
+      }
+
+      &::after {
+        content: "";
+        background: $cornflower-blue;
+        bottom: -1px;
+        height: 2px;
+        left: 0px;
+        position: absolute;
+        transform: scale(0);
+        transition: all 250ms ease 0s;
+        width: 100%;
+      }
+    }
+
+    &:hover > a::after {
+      transform: scale(1);
+    }
+  }
+}
+
+.tab-nav > li > a::after {
+  background: $blumine none repeat scroll 0% 0%;
+  color: white;
+}
+
+.tab-pane {
+  padding: 15px 0;
+}
+
+.img-friend {
+  margin-bottom: 1px;
+}
+
+.img-profile {
+  margin-bottom: 5px;
+}

@@ -2,27 +2,36 @@
   <div class="col-md-8">
     <h1 class="page-header">
       Home
-      <small>post your friends written</small>
+      <% if user_signed_in? %>
+        <small>posts written by your friends.</small>
+        <p><small>
+          Find some friends <%= link_to "here", users_path %>
+          if you have no friends
+        </small></p>
+      <% end %>
     </h1>
-    <%= render partial: "static_pages/post", collection: @posts%>
-    <hr>
-    <%= paginate @posts %>
+    <% if user_signed_in? %>
+      <%= render partial: "static_pages/post", collection: @posts_by_friends%>
+    <% else %>
+      <%= render partial: "static_pages/post", collection: @posts %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= paginate @posts_by_friends %>
+    <% else %>
+      <%= paginate @posts %>
+    <% end %>
   </div>
   <div class="col-md-4">
-    <div class="well">
-      <h4>Blog Search</h4>
-      <div class="input-group">
-        <input type="text" class="form-control">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-    </div>
-    <div class="well">
-      <h4>Side Widget Well</h4>
-      <p>Test</p>
+    <div class="about">
+      <h3>A web blog platform</h3>
+      <p>This is a project made in 2 days using Rails framework</p>
+      <h4>Everyone can</h4>
+        <li>read all posts and comments on this site</li>
+        <li>sign up to become a user</li>
+      <h4>Become a user, you can</h4>
+        <li>Write post everyday</li>
+        <li>Make friends with other users and read their posts</li>
+        <li>Express your opinions to others' posts by commenting and pressing like button </li>
     </div>
   </div>
   </div>

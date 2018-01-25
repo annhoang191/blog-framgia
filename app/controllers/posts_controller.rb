@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update]
 
   def index
-    @posts_written = current_user.posts.all
+    @posts = Post.order_by_date_created.page params[:page]
   end
 
   def show

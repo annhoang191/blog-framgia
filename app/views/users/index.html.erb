@@ -1,0 +1,29 @@
+<h1>Find friends</h1>
+<% for user in @users %>
+  <div class="card">
+    <div class="card-body">
+      <div class="card-block">
+        <div class="media">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="media-body statistic-content">
+                <%= image_tag user.picture_url(:circle) %>
+              </div>
+            </div>
+            <div class="col-md-5 ">
+              <h5><%= link_to user.name, user_path(id: user.id) %></h5>
+              <p>This user has <%= pluralize(user.posts.count, "post") %></p>
+              <p>Joined since <%= user.created_at.to_date.strftime("%m-%d-%Y") %></p>
+              <% unless current_user.id == user.id %>
+                <%= link_to "Add Friend", friendships_path(:friend_id => user),
+                  :method => :post,
+                  class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= paginate @users %>

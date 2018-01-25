@@ -8,7 +8,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   version :thumb do
     cloudinary_transformation format: :png, transformation: [
       {effect: :improve},
-      {width: 27, height: 27, crop: :thumb, gravity: :face, radius: :max}
+      {width: 24, height: 24, crop: :thumb, gravity: :face, radius: :max}
     ]
   end
 
@@ -20,6 +20,13 @@ class PictureUploader < CarrierWave::Uploader::Base
     cloudinary_transformation format: :jpg, transformation: [
       {effect: :improve},
       {width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max}
+    ]
+  end
+
+  version :friend do
+    cloudinary_transformation format: :jpg, transformation: [
+      {effect: :improve},
+      {width: 80, height: 80, crop: :thumb, gravity: :face, radius: :max}
     ]
   end
 end

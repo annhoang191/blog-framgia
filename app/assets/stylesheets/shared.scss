@@ -5,13 +5,20 @@
 /* universal */
 body {
   padding-top: 60px;
+  font-family: 'Fira Sans', sans-serif;
+}
+.signup-form, .edit-form {
+  margin-bottom: 150px;
 }
 
-/* universal */
-body {
-  padding-top: 60px;
+.user-profile {
+  margin-bottom: 300px;
 }
 
+.login-form {
+  margin-top: 80px;
+  margin-bottom: 200px;
+}
 /* header */
 #logo {
   color: white;
@@ -28,30 +35,32 @@ body {
   }
 }
 
+.fa-sign-in, .fa-check-square {
+  color: white !important;
+}
+
+.about {
+  padding: 1.5rem;
+  margin-top: 30px;
+  border-left: 0.5px solid #d3d3d3;
+}
+
 /* footer */
-footer {
-  border-top: 1px solid $lavender;
-  color: $light-gray;
-  margin-top: 45px;
-  padding-top: 5px;
-  a {
-    color: $dimgray;
-    &:hover {
-      color: $dark;
-    }
+#myFooter {
+  color: white;
+  position: relative;
+  padding-top: 30px;
+  width: 100%;
+  margin-top: 150px;
+  .footer-copyright {
+    background-color: $dark;
+    padding: 3px 0;
+    text-align: center;
   }
 
-  small {
-    float: left;
-  }
-
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
+  .footer-copyright p {
+    color: white;
+    margin: 10px;
   }
 }
 

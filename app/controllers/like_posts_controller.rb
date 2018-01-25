@@ -1,5 +1,5 @@
 class LikePostsController < ApplicationController
-  before_action :logged_in?, only: [:create]
+  before_action :user_signed_in?, only: [:create]
 
   def create
     @user = current_user.id
@@ -22,10 +22,4 @@ class LikePostsController < ApplicationController
     end
   end
 
-  private
-
-  def logged_in?
-    return if current_user.present?
-    redirect_to new_user_path
-  end
 end
