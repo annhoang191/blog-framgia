@@ -22,4 +22,11 @@ class PictureUploader < CarrierWave::Uploader::Base
       {width: 150, height: 150, crop: :thumb, gravity: :face, radius: :max}
     ]
   end
+
+  version :friend do
+    cloudinary_transformation format: :jpg, transformation: [
+      {effect: :improve},
+      {width: 80, height: 80, crop: :thumb, gravity: :face, radius: :max}
+    ]
+  end
 end

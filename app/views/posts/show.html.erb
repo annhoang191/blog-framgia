@@ -27,16 +27,18 @@
         <p class="markdown"><%= markdown @post.content %></p>
       </div>
       <hr>
-      <div class="like-post">
-      <%= button_to post_like_posts_path(@post.id), remote: true, class: "clear" do %>
-        <i class="fa fa-thumbs-up" id="like_<%= @post.id %>" aria-hidden="true"></i> <span> Like this post</span>
-      <% end %>
-      </div>
-      <div class="share-post">
-        <h3>Share this post!</h3>
-      </div>
-      <hr>
       <% if user_signed_in? %>
+        <div class="like-post">
+        <% if like?(@post.id) %>
+          <%= button_to post_like_posts_path(@post.id), remote: true, class: "clear" do %>
+            <i class="fa fa-thumbs-up fa-thumbs-up-press" id="like_<%= @post.id %>" aria-hidden="true"></i> <span> Like this post</span>
+          <% end %>
+        <% else %>
+          <%= button_to post_like_posts_path(@post.id), remote: true, class: "clear" do %>
+            <i class="fa fa-thumbs-up" id="like_<%= @post.id %>" aria-hidden="true"></i> <span> Like this post</span>
+          <% end %>
+        <% end %>
+        </div>
         <h3>Leave a comment</h3>
         <div class="comment-form well">
           <%= render "comments/form" %>
@@ -45,15 +47,6 @@
       <hr>
       <div class="showing-comments">
         <%= render @post.comments %>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="well">
-        <h4><%= t ".categories" %></h4>
-        <div class="row">
-        Something here
-        </div>
       </div>
     </div>
   </div>
