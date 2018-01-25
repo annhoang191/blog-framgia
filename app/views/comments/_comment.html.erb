@@ -2,17 +2,24 @@
   <a class="pull-left" href="#"></a>
   <% if current_user && current_user.id == comment.user_id %>
     <span>
-      <%= link_to "X", [comment.post, comment], method: :delete, remote: true,
+      <%= link_to "Delete", [comment.post, comment], method: :delete, remote: true,
         data: {toggle: "modal", target:"#myModal"}, class: "btn btn-primary remove-button" %>
     </span>
   <% end %>
   <div class="media-body">
     <div class="row">
-          <h4 class="media-heading">
-            <%= comment.user.try(:name) %>
-            <p><small><%= comment.created_at%></small></p>
-          </h4>
-          <%= comment.content %>
+      <div class="col-md-2">
+        <% if comment.user.try(:picture).present? %>
+          <%= image_tag comment.user.try(:picture_url), class: "comment-avatar"%>
+        <% end %>
+      </div>
+      <div class="col-md-10 commenting">
+        <h4 class="media-heading">
+          <%= comment.user.try(:name) %>
+          <p><small><%= comment.created_at%></small></p>
+        </h4>
+        <%= comment.content %>
+      </div>
     </div>
   </div>
 </div>

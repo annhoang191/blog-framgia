@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :store_return_to, unless: :devise_controller?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit :sign_up, keys: [:name]
+    devise_parameter_sanitizer.permit :sign_up, keys: [:name, :picture]
+    devise_parameter_sanitizer.permit :account_update, keys: [:name, :picture]
   end
 
   def stored_location_for resource_or_scope

@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-block">
+      <div class="media">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="media-body statistic-content">
+              <%= image_tag post.user.picture_url(:circle) %>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <h5><%= link_to post.user.name, user_path(id: post.user.id) %></h5>
+            <h3><%= link_to post.title, post %>
+            <small><%= time_ago_in_words(post.created_at) %> ago</small>
+            </h3>
+            <p>this post has <%= pluralize(post.comments.count, "comment") %></p>
+            <%= link_to post, class:"btn btn-primary" do %>
+              Read more
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
